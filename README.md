@@ -20,5 +20,6 @@ The max allowed lines for files. Default `1000`
 uses: Berke-Ates/LoC@v1.1
 with:
   folder: lib
+  exclude: .generated
   max-lines: 200
 ```
