@@ -5,7 +5,7 @@ const fs = require('fs');
 
 try {
     const folder = core.getInput('folder');
-    const exclude = code.getInput('exclude').split(' ');
+    const exclude = core.getInput('exclude').split(' ');
     const maxLines = core.getInput('max-lines');
     let hasErr = false;
 
