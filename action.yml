@@ -1,5 +1,6 @@
 name: 'Check LoC'
 description: 'Count lines of code per file'
+
 inputs:
   folder:
     description: 'Folder to scan'
@@ -13,9 +14,11 @@ inputs:
     description: 'Max lines of code per file'
     required: true
     default: 1000
+
 runs:
   using: 'node12'
   main: 'dist/index.js'
+
 branding:
   icon: 'check'
   color: 'purple'
