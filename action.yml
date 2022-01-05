@@ -12,7 +12,7 @@ inputs:
     default: ""
   max-lines:
     description: 'Max lines of code per file'
-    required: true
+    required: false
     default: 1000
 
 runs:
