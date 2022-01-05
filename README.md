@@ -13,7 +13,7 @@ The max allowed lines for files. Default `1000`.
 
 ## Example usage
 
-uses: actions/LoC@v1.0
+uses: Berke-Ates/LoC@v1.0
 with:
   folder: lib
   max-lines: 200
