@@ -5,7 +5,7 @@ const fs = require('fs');
 
 try {
     const folder = core.getInput('folder');
-    const exclude = code.getInput('exclude');
+    const exclude = code.getInput('exclude').split(' ');
     const maxLines = core.getInput('max-lines');
     let hasErr = false;
 
@@ -27,7 +27,7 @@ try {
     });
 
     if (hasErr) {
-        throw "Some files have too many lines of code";
+        throw 'Some files have too many lines of code';
     }
 
 } catch (error) {
