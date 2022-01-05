@@ -5,7 +5,7 @@ This action calculates the lines of code for each file
 
 ## `folder`
 
-The folder to scan. Default `.`.
+The folder to scan. Default `./`.
 
 ## `max-lines`
 

@@ -4,7 +4,7 @@ inputs:
   folder:
     description: 'Folder to scan'
     required: false
-    default: '.'
+    default: './'
   max-lines:
     description: 'Max lines of code per file'
     required: true

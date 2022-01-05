@@ -8676,14 +8676,22 @@ var __webpack_exports__ = {};
 const core = __nccwpck_require__(5127);
 const github = __nccwpck_require__(3134);
 const file = __nccwpck_require__(3213);
+const fs = __nccwpck_require__(7147);
 
 try {
     const folder = core.getInput('folder');
     const maxLines = core.getInput('max-lines');
 
     file.walkSync(folder, function (start, dirs, names) {
-        console.log(start);
-        console.log(names);
+        names.forEach(name => {
+            const path = `${start}/${name}`;
+            const data = fs.readFileSync(path).toString();
+            const LoC = data.split('\n').length;
+
+            if (LoC > maxLines) {
+                console.error(`${path}: Too many LoC: ${LoC}`);
+            }
+        });
     });
 
 } catch (error) {
