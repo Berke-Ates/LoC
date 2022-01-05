@@ -18,4 +18,4 @@ jobs:
     
     steps:
       - name: No params
-        uses: Berke-Ates/LoC
+        uses: Berke-Ates/LoC@main
