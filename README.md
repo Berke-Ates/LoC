@@ -12,9 +12,9 @@ The folder to scan. Default `./`.
 The max allowed lines for files. Default `1000`.
 
 ## Example usage
-'''
+```
 uses: Berke-Ates/LoC@v1.0
 with:
   folder: lib
   max-lines: 200
-'''
+```
