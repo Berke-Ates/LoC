@@ -8680,18 +8680,23 @@ const fs = __nccwpck_require__(7147);
 
 try {
     const folder = core.getInput('folder');
+    const exclude = code.getInput('exclude');
     const maxLines = core.getInput('max-lines');
     let hasErr = false;
 
     file.walkSync(folder, function (start, dirs, names) {
         names.forEach(name => {
-            const path = `${start}/${name}`;
-            const data = fs.readFileSync(path).toString();
-            const LoC = data.split('\n').length;
+            let skipFile = false;
+            exclude.forEach(ext => skipFile = skipFile || name.endsWith(ext));
+            if (!skipFile) {
+                const path = `${start}/${name}`;
+                const data = fs.readFileSync(path).toString();
+                const LoC = data.split('\n').length;
 
-            if (LoC > maxLines) {
-                console.error(`Too many LoC(${LoC}): ${path}`);
-                hasErr = true;
+                if (LoC > maxLines) {
+                    console.error(`Too many LoC(${LoC}): ${path}`);
+                    hasErr = true;
+                }
             }
         });
     });

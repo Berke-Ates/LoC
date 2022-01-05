@@ -13,15 +13,15 @@ try {
         names.forEach(name => {
             let skipFile = false;
             exclude.forEach(ext => skipFile = skipFile || name.endsWith(ext));
-            if (skipFile) continue;
+            if (!skipFile) {
+                const path = `${start}/${name}`;
+                const data = fs.readFileSync(path).toString();
+                const LoC = data.split('\n').length;
 
-            const path = `${start}/${name}`;
-            const data = fs.readFileSync(path).toString();
-            const LoC = data.split('\n').length;
-
-            if (LoC > maxLines) {
-                console.error(`Too many LoC(${LoC}): ${path}`);
-                hasErr = true;
+                if (LoC > maxLines) {
+                    console.error(`Too many LoC(${LoC}): ${path}`);
+                    hasErr = true;
+                }
             }
         });
     });
