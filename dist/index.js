@@ -8682,8 +8682,8 @@ try {
     const maxLines = core.getInput('max-lines');
 
     file.walkSync(folder, function (start, dirs, names) {
-        print(start);
-        print(names);
+        console.log(start);
+        console.log(names);
     });
 
 } catch (error) {
