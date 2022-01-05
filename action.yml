@@ -9,7 +9,6 @@ inputs:
     description: 'Max lines of code per file'
     required: true
     default: 1000
-outputs:
 runs:
   using: 'node12'
   main: 'dist/index.js'
