@@ -5,6 +5,10 @@ inputs:
     description: 'Folder to scan'
     required: false
     default: './'
+  exclude:
+    description: 'File extensions to exclude'
+    required: false
+    default: []
   max-lines:
     description: 'Max lines of code per file'
     required: true

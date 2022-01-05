@@ -5,11 +5,15 @@ This action calculates the lines of code for each file
 
 ## `folder`
 
-The folder to scan. Default `./`.
+The folder to scan. Default `./`
+
+## `exclude`
+
+The file extension to exclude. Default `[]`
 
 ## `max-lines`
 
-The max allowed lines for files. Default `1000`.
+The max allowed lines for files. Default `1000`
 
 ## Example usage
 ```

@@ -5,11 +5,16 @@ const fs = require('fs');
 
 try {
     const folder = core.getInput('folder');
+    const exclude = code.getInput('exclude');
     const maxLines = core.getInput('max-lines');
     let hasErr = false;
 
     file.walkSync(folder, function (start, dirs, names) {
         names.forEach(name => {
+            let skipFile = false;
+            exclude.forEach(ext => skipFile = skipFile || name.endsWith(ext));
+            if (skipFile) continue;
+
             const path = `${start}/${name}`;
             const data = fs.readFileSync(path).toString();
             const LoC = data.split('\n').length;
