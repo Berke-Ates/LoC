@@ -1920,7 +1920,10 @@ try {
   file.walkSync(folder, function (start, dirs, names) {
     names.forEach(name => {
       let skipFile = false;
-      exclude.forEach(ext => skipFile = skipFile || name.endsWith(ext));
+
+      // Support **/folder and such
+      exclude.forEach(ext => skipFile = skipFile || name.match(ext).length > 0);
+
       if (!skipFile) {
         const path = `${start}/${name}`;
         const data = fs.readFileSync(path).toString();
