@@ -1920,9 +1920,7 @@ try {
   file.walkSync(folder, function (start, dirs, names) {
     names.forEach(name => {
       let skipFile = false;
-
-      // Support **/folder and such
-      exclude.forEach(ext => skipFile = skipFile || name.match(ext).length > 0);
+      exclude.forEach(ext => skipFile = skipFile || name.match(ext) != null);
 
       if (!skipFile) {
         const path = `${start}/${name}`;
