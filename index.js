@@ -10,11 +10,12 @@ try {
 
   file.walkSync(folder, function (start, dirs, names) {
     names.forEach(name => {
+      const path = `${start}/${name}`;
+
       let skipFile = false;
-      exclude.forEach(ext => skipFile = skipFile || name.match(ext) != null);
+      exclude.forEach(ext => skipFile = skipFile || path.match(ext) != null);
 
       if (!skipFile) {
-        const path = `${start}/${name}`;
         const data = fs.readFileSync(path).toString();
         const LoC = data.split('\n').length;
 
