@@ -9,7 +9,7 @@ The folder to scan. Default `./`
 
 ## `exclude`
 
-The file extension to exclude. Default `""`
+The files to exclude. Default `""`
 
 ## `max-lines`
 
