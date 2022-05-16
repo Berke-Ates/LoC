@@ -7,7 +7,7 @@ inputs:
     required: false
     default: './'
   exclude:
-    description: 'File extensions to exclude'
+    description: 'Files to exclude'
     required: false
     default: ""
   max-lines:
